@@ -28,7 +28,7 @@ def main():
     print(driver.current_activity)
 
     wait = WebDriverWait(driver, 10)  # 创建显式等待对象，最长等待时间为 10 秒
-    wait.until(lambda d:d.find_element(""))  # 等待 Edge 浏览器的主 Activity 启动完成
+    element = wait.until(lambda d:d.find_element(AppiumBy.XPATH, '//android.widget.LinearLayout[@resource-id="com.microsoft.emmx:id/edge_location_bar_center"]'))  # 
 
     driver.execute_script( # 关闭当前操作的app，不会关闭驱动对象
         "mobile: terminateApp",  # Appium 移动端命令：终止指定应用
